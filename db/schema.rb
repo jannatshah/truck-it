@@ -10,10 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_145458) do
+ActiveRecord::Schema.define(version: 2019_11_25_154116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "diets", force: :cascade do |t|
+    t.string "requirement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dish_diets", force: :cascade do |t|
+    t.bigint "dish_id"
+    t.bigint "diet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["diet_id"], name: "index_dish_diets_on_diet_id"
+    t.index ["dish_id"], name: "index_dish_diets_on_dish_id"
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.bigint "truck_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["truck_id"], name: "index_dishes_on_truck_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "day"
+    t.time "start_time"
+    t.time "end_time"
+    t.string "location"
+    t.boolean "open"
+    t.bigint "truck_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["truck_id"], name: "index_schedules_on_truck_id"
+  end
+
+  create_table "selections", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "dish_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_selections_on_dish_id"
+    t.index ["order_id"], name: "index_selections_on_order_id"
+  end
+
+  create_table "trucks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "category"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_trucks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +85,17 @@ ActiveRecord::Schema.define(version: 2019_11_25_145458) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dish_diets", "diets"
+  add_foreign_key "dish_diets", "dishes"
+  add_foreign_key "dishes", "trucks"
+  add_foreign_key "orders", "users"
+  add_foreign_key "schedules", "trucks"
+  add_foreign_key "selections", "dishes"
+  add_foreign_key "selections", "orders"
+  add_foreign_key "trucks", "users"
 end
