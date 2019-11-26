@@ -8,6 +8,7 @@ class TrucksController < ApplicationController
 
   def show
     authorize @truck
+    @dishes = @truck.dishes
   end
 
   def new
