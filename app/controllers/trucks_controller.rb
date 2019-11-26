@@ -4,12 +4,20 @@ class TrucksController < ApplicationController
 
   def index
     @trucks = policy_scope(Truck)
+    @schedules = @trucks.map { |truck| truck.schedules }.flatten
+    @markers = @schedules.select { |schedule| Date::DAYNAMES.index(schedule.day) == Date.today.wday }.map { |s| { lat: s.latitude, lng: s.longitude } }
+
+    # @markers = @trucks.map do |truck|
+    #   {
+    #     lat: s.latitude,
+    #     lng: s.longitude
+    #   }
+    # end
   end
 
   def show
     authorize @truck
     # @dishes = @truck.dishes unless @truck.dishes.nil?
-    # @schedules = @truck.schedules unless @truck.schedules.nil?
   end
 
   def new
