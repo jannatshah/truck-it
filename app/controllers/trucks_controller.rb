@@ -7,6 +7,7 @@ class TrucksController < ApplicationController
   end
 
   def show
+    authorize @truck
   end
 
   def new
