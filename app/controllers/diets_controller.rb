@@ -5,6 +5,11 @@ class DietsController < ApplicationController
 
   def create
     @diet = Diet.new(diet_params)
+    if @diet.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   private
