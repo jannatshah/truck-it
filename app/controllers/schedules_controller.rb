@@ -9,6 +9,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
     @schedule.truck = @truck
     # IF SAVE LOGIC
+    @schedule.save
   end
 
   def edit
