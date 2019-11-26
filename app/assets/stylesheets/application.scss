@@ -1,3 +1,8 @@
+// html, body {
+//   margin: 0;
+//   padding: 0;
+//   width: 100%;
+// }
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -11,3 +16,5 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "truck/show";
+
