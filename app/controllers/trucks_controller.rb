@@ -1,4 +1,5 @@
 class TrucksController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_truck, only: %i[show edit update destroy]
 
   def index
@@ -14,7 +15,13 @@ class TrucksController < ApplicationController
 
   def create
     @truck = Truck.new(truck_params)
+    @truck.user = current_user
     # IF LOGIC WHEN WE HAVE VIEWS
+    if @truck.save
+      redirect_to @truck
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,6 +30,11 @@ class TrucksController < ApplicationController
   def update
     @truck.update(truck_params)
     # IF LOGIC WHEN WE HAVE VIEWS
+    if @truck.save
+      redirect_to @truck
+    else
+      render :edit
+    end
   end
 
   def destroy

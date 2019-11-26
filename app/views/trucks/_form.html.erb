@@ -1,0 +1,16 @@
+<%= simple_form_for(@truck) do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :category, :collection => [
+      'Chinese', 'Indian', 'Thai', 'Mexican', 'Lebanese', 'Italian', 'Kebabs',
+      'Burgers', 'Hot dogs', 'Ice cream', 'Donuts', 'Pancakes', 'Brazilian', 'Tapas',
+      'Caribbean', 'French', 'Greek', 'Turkish', 'Indonesian', 'Fries', 'Jamaican',
+      'Ethiopian', 'Kosher', 'Levantine', 'Polish', 'Peruvian', 'Bratwurst', 'Malay',
+      'Singaporean', 'Vietnamese', 'Korean BBQ', 'Corn Dogs', 'Fish & chips', 'Argentine'
+    ]%>
+  <%= f.button :submit, :class => "text-center"  %>
+
+<% end %>

@@ -1,0 +1,10 @@
+<!-- edit.html.erb -->
+<div class = "container">
+  <div class = "row justify-content-center">
+    <div class="col-12 col-sm-6 pt-5">
+    <h1>Update your truck info here</h1>
+
+    <%= render 'form', truck: @truck %>
+    <p class="text-center"> <%= link_to 'Back', trucks_path %></p>
+  </div>
+</div>
