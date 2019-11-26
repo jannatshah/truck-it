@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :find_truck
+  skip_after_action :verify_authorized
 
   def new
     @schedule = Schedule.new

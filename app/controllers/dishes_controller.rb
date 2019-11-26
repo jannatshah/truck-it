@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   before_action :set_truck
   before_action :find_dish, only: %i[edit update destroy]
+  skip_after_action :verify_authorized
 
   def new
     @dish = Dish.new
