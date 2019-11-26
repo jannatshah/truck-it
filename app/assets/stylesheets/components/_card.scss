@@ -1,0 +1,24 @@
+.card {
+  // display: flex;
+  background: white;
+  color: rgba(0,0,0, .6);
+  box-shadow: 1px 1px 8px rgba(0,0,0, .5);
+  & img {
+    margin: 0;
+  }
+  // temp
+  margin-top: 10px;
+}
+.card h5 {
+  margin: 0;
+}
+.open {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 8px rgba(0,0,0, .5);
+  background: lime;
+  position: relative;
+  top: -102px;
+  left: 10px;
+}

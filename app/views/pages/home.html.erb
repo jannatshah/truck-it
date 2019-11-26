@@ -1,4 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to 'i need food', trucks_path %>
-<%= link_to 'i need $$$', new_user_session_path %>
+<div class="logo" style="background-image: url('https://mpng.pngfly.com/20180302/wgq/kisspng-car-street-food-food-truck-illustration-lovely-simple-travel-diner-5a9918416e3028.4657014015199826574513.jpg')"></div>
+<div class="container">
+  <div class="row m-3">
+  <%= link_to 'i need food', trucks_path, class: 'button-truck' %>
+  </div>
+  <div class="row m-3">
+    <%= link_to 'i need $$$', new_user_session_path, class: 'button-truck' %>
+  </div>
+</div>
+
