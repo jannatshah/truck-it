@@ -1,6 +1,6 @@
 class Schedule < ApplicationRecord
   belongs_to :truck
-  validates :day, uniqueness: true, inclusion: { in: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] }
+  validates :day, uniqueness: { scope: :truck }, inclusion: { in: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] }
   validates :open, presence: true
   validates :location, presence: true if :open?
   validates :start_time, presence: true if :open?
