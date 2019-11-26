@@ -1,1 +1,14 @@
 <h1>Trucks#index</h1>
+
+
+<% if policy(Truck).create? %>
+  <%= link_to "New truck", new_truck_path %>
+<% end %>
+
+
+<% @trucks.each do |truck| %>
+  <%= truck.name %>
+  <% if policy(truck).edit? %>
+    <%= link_to "Update", edit_truck_path(truck) %>
+  <% end %>
+<% end %>
