@@ -8,7 +8,8 @@ class TrucksController < ApplicationController
 
   def show
     authorize @truck
-    @dishes = @truck.dishes
+    # @dishes = @truck.dishes unless @truck.dishes.nil?
+    # @schedules = @truck.schedules unless @truck.schedules.nil?
   end
 
   def new
