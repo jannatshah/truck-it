@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :trucks do
     resources :schedules, only: [:new, :create, :edit, :update]
     resources :dishes, except: [:index, :show]
-    resources :orders, only: [:index, :new, :create]
+    resources :orders, only: [:new, :create]
   end
 
   resources :orders, only: [:show]
