@@ -1,0 +1,16 @@
+<!-- new.html.erb -->
+<div class="container">
+  <div class = "row justify-content-center">
+    <div class="col-12 col-sm-6 pt-5">
+    <%= simple_form_for(@diet) do |f| %>
+
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <%= f.input :requirement %>
+      <%= f.button :submit, :class => "btn-primary text-center"  %>
+
+    <% end %>
+    </div>
+  </div>
+</div>
