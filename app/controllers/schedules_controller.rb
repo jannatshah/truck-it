@@ -27,6 +27,7 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     @schedule.update(schedule_params)
     # IF SAVE LOGIC
+    @schedule.save
   end
 
   private

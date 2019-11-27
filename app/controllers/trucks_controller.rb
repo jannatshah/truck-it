@@ -5,7 +5,13 @@ class TrucksController < ApplicationController
   def index
     @trucks = policy_scope(Truck)
     @schedules = @trucks.map { |truck| truck.schedules }.flatten
-    @markers = @schedules.select { |schedule| Date::DAYNAMES.index(schedule.day) == Date.today.wday }.map { |s| { lat: s.latitude, lng: s.longitude } }
+    @markers = @schedules.select { |schedule| Date::DAYNAMES.index(schedule.day) == Date.today.wday }.map { |s|
+      {
+        lat: s.latitude,
+        lng: s.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { s: s }),
+        image_url: helpers.asset_url('truck_icon.png')
+      }}
 
     # @markers = @trucks.map do |truck|
     #   {
