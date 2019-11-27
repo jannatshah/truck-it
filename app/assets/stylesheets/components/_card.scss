@@ -12,6 +12,7 @@
 }
 .card h5 {
   margin: 0;
+  font-weight: bold;
 }
 .open {
   width: 8px;
@@ -20,7 +21,7 @@
   box-shadow: 1px 1px 8px rgba(0,0,0, .5);
   background: lime;
   position: absolute;
-  top: -102px;
+  top: 10px;
   left: 10px;
 }
 .btn-card-truck-edit {
