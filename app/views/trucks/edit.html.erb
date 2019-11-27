@@ -4,7 +4,25 @@
     <div class="col-12 col-sm-6 pt-5">
     <h1>Update your truck info here</h1>
 
-    <%= render 'form', truck: @truck %>
+    <%= render 'trucks/form', truck: @truck %>
+    <br>
+    <br>
+    <h1>
+      <%= pluralize @truck.schedules.size, "schedule" %>
+    </h1>
+    <br>
+  <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |d| %>
+      <% if @truck.schedules.where(day: d).size == 0 %>
+        <p class="d-flex justify-content-between px-3"><span><%= d %></span><span>closed</span></p>
+      <% else %>
+        <%  day = @truck.schedules.where(day: d).last %>
+        <p class="d-flex justify-content-between px-3"><span><%= d %></span><span><span class="open-time"><%= day.start_time.hour %></span> - <span class="close-time"><%= day.end_time.hour %></span><%= link_to 'edit', edit_truck_schedule_path(@truck, @truck.schedules.where(day: d).last)  %></span></p>
+      <% end %>
+    <% end %>
+    <br>
+    <br>
+    <h1>Add a Schedule</h1>
+    <%= render 'schedules/new', schedule: @schedule %>
     <p class="text-center"> <%= link_to 'Back', trucks_path %></p>
     </div>
   </div>

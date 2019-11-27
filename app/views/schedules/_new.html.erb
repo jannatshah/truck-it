@@ -1,0 +1,15 @@
+<!-- _form_schedule.html.erb -->
+<%= simple_form_for [@truck, @schedule] do |f| %>
+
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <%= f.input :day, :collection => [
+      'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+    ]%>
+  <%= f.input :open %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :location %>
+  <%= f.button :submit, :class => "btn-primary text-center"  %>
+
+<% end %>
