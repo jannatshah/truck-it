@@ -14,6 +14,12 @@
   margin: 0;
   font-weight: bold;
 }
+
+.card a, a:hover {
+  color: rgba(0,0,0, .6);
+  text-decoration: none;
+}
+
 .open {
   width: 8px;
   height: 8px;

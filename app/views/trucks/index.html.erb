@@ -11,7 +11,9 @@
   <h4>Truck-it list</h4>
 
   <% @trucks.each do |truck| %>
-    <%= render 'shared/card', truck: truck %>
+    <%= link_to truck_path(truck) do %>
+      <%= render 'shared/card', truck: truck %>
+    <% end %>
   <% end %>
 
 </div>
