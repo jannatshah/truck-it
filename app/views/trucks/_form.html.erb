@@ -11,8 +11,11 @@
       'Ethiopian', 'Kosher', 'Levantine', 'Polish', 'Peruvian', 'Bratwurst', 'Malay',
       'Singaporean', 'Vietnamese', 'Korean BBQ', 'Corn Dogs', 'Fish & chips', 'Argentine'
     ]%>
-  <%= f.input :card %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit, :class => "btn-primary text-center"  %>
+  <%= f.input :card, input_html: { class: "text-center" } %>
+  <%= f.input :photo, as: :file, input_html: { class: "text-center" } %>
+  <div class="text-center">
+    <%= f.button :submit, :class => "btn-primary"  %>
+
+  </div>
 
 <% end %>
