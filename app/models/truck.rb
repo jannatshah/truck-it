@@ -22,4 +22,8 @@ class Truck < ApplicationRecord
 
     reviews.pluck(:rating).sum / reviews.size
   end
+
+  def open?
+    schedules.any? { |schedule| Date::DAYNAMES.index(schedule.day) == Date.today.wday }
+  end
 end
