@@ -9,6 +9,10 @@ class SchedulesController < ApplicationController
   def create
     @schedule = Schedule.new(schedule_params)
     @schedule.truck = @truck
+    existing_schedule = @truck.schedules.find {|schedule| schedule.day == @schedule.day}
+    if existing_schedule && @schedule.valid?
+      existing_schedule.destroy
+    end
     # IF SAVE LOGIC
     if @schedule.save
       redirect_to @truck
