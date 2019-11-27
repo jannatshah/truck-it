@@ -39,6 +39,8 @@ class TrucksController < ApplicationController
 
   def edit
     authorize @truck
+    @schedule = Schedule.new
+    @schedule.truck = @truck
   end
 
   def update
@@ -65,5 +67,9 @@ class TrucksController < ApplicationController
 
   def truck_params
     params.require(:truck).permit(:name, :description, :category, :photo)
+  end
+
+  def schedule_params
+    params.require(:schedule).permit(:truck_id, :day, :open, :location, :start_time, :end_time)
   end
 end
