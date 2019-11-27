@@ -6,6 +6,18 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :price %>
+  <input type="hidden" name="dish[diet_ids][]" value="">
+  <div class="diet-requirements">
+    <% Diet.all.each do |diet| %>
+      <div class="diet-requirement">
+        <input type="checkbox" class="hidden" value="<%= diet.id %>" name="dish[diet_ids][]" id="dish_diet_ids_<%= diet.id %>">
+        <label for="dish_diet_ids_<%= diet.id %>">
+          <%= diet.requirement %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+
   <%= f.button :submit, :class => "btn-primary text-center"  %>
 
 <% end %>
