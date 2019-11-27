@@ -1,12 +1,4 @@
   <div class="schedule-box my-3">
-
-    <!-- <p class="d-flex justify-content-between px-3"><span>tuesday</span><span><span class="open-time">10:00</span> - <span class="close-time">16:00</span></span></p>
-    <p class="d-flex justify-content-between px-3"><span>wednesday</span><span><span class="open-time">10:00</span> - <span class="close-time">16:00</span></span></p>
-    <p class="d-flex justify-content-between px-3"><span>thursday</span><span><span class="open-time">10:00</span> - <span class="close-time">16:00</span></span></p>
-    <p class="d-flex justify-content-between px-3"><span>friday</span><span><span class="open-time">10:00</span> - <span class="close-time">16:00</span></span></p>
-    <p class="d-flex justify-content-between px-3"><span>saturday</span><span><span class="open-time">10:00</span> - <span class="close-time">16:00</span></span></p>
-    <p class="d-flex justify-content-between px-3"><span>sunday</span><span><span class="open-time">10:00</span> - <span class="close-time">16:00</span></span></p>
- -->
     <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |d| %>
       <% if @truck.schedules.where(day: d).size == 0 %>
         <p class="d-flex justify-content-between px-3"><span><%= d %></span><span>closed</span></p>
