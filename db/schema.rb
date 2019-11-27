@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_134725) do
+ActiveRecord::Schema.define(version: 2019_11_27_155354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_134725) do
     t.time "start_time"
     t.time "end_time"
     t.string "location"
-    t.boolean "open"
     t.bigint "truck_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -106,8 +105,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_134725) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
     t.boolean "card", default: false
     t.index ["user_id"], name: "index_trucks_on_user_id"
   end
