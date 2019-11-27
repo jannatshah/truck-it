@@ -27,6 +27,11 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find(params[:id])
     @schedule.update(schedule_params)
     # IF SAVE LOGIC
+    if @schedule.save
+      redirect_to @truck
+    else
+      render :edit
+    end
   end
 
   private
