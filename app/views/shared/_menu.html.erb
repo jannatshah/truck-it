@@ -1,5 +1,5 @@
 <div class="menu p-3">
-  <h5 class="text-center">MEMU</h5>
+  <h5 class="text-center">MENU</h5>
 <!-- dish 1 -->
 <% @truck.dishes.each do |dish| %>
   <p>
@@ -9,7 +9,7 @@
       <p><%= dish.name %></p>
         <em class="op"><%= dish.description %></em>
         <div class="d-flex justify-content-between">
-          <p>£6.49</p><span class="text-danger"></span>
+          <p><%= dish.price %></p><span class="text-danger"></span>
           <div>
             <i class="fas fa-fish px-3"></i>
             <i class="fas fa-coffee"></i>
