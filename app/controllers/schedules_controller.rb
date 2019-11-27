@@ -15,7 +15,7 @@ class SchedulesController < ApplicationController
     end
     # IF SAVE LOGIC
     if @schedule.save
-      redirect_to @truck
+      redirect_to edit_truck_path(@truck)
     else
       # redirect_to edit_truck_path(@truck)
       render 'trucks/edit'
@@ -33,7 +33,7 @@ class SchedulesController < ApplicationController
     # IF SAVE LOGIC
 
     if @schedule.save
-      redirect_to @truck
+      redirect_to edit_truck_path(@schedule.truck)
     else
       render :edit
     end
