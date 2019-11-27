@@ -1,4 +1,4 @@
-<div class="truck-img" style="background-image: url('https://www.papernstitchblog.com/wp-content/uploads/2014/09/fruit-loops-ice-cream-in-a-cone.jpg')"></div>
+<div class="truck-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @truck.photo.key, crop: :fill %>')"></div>
 <div class="container truck-content">
     <%= render 'shared/truck-info-box' %>
     <%= render 'shared/schedule' %>

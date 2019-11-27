@@ -64,6 +64,6 @@ class TrucksController < ApplicationController
   end
 
   def truck_params
-    params.require(:truck).permit(:name, :description, :category)
+    params.require(:truck).permit(:name, :description, :category, :photo)
   end
 end

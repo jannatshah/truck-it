@@ -13,4 +13,6 @@ class Truck < ApplicationRecord
       'Ethiopian', 'Kosher', 'Levantine', 'Polish', 'Peruvian', 'Bratwurst', 'Malay',
       'Singaporean', 'Vietnamese', 'Korean BBQ', 'Corn Dogs', 'Fish & chips', 'Argentine'
     ] }
+
+  has_one_attached :photo
 end
