@@ -66,7 +66,7 @@ class TrucksController < ApplicationController
   end
 
   def truck_params
-    params.require(:truck).permit(:name, :description, :category, :photo)
+    params.require(:truck).permit(:name, :description, :category, :photo, :card)
   end
 
   def schedule_params
