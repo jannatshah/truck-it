@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Preparing diets..."
+
+diets = ["Vegan", "Vegetarian", "Halal", "Kosher",
+        "Lacto free", "Gluten free", "Nut free", "Sugar free"]
+diets.each do |diet|
+  Diet.create(requirement: diet)
+end
+
+puts "Diets now available!"
