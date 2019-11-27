@@ -11,9 +11,12 @@ class DishesController < ApplicationController
     @dish = Dish.new(dish_params)
     @dish.truck = @truck
     if @dish.save
+      diet_ids = params["dish"]["diet_ids"].reject(&:empty?)
+      diet_ids.each do |diet_id|
+        DishDiet.create(dish: @dish, diet: Diet.find(diet_id))
+      end
       redirect_to truck_path(@truck)
-    else
-      render :new
+    else render :new
     end
   end
 
@@ -42,7 +45,7 @@ class DishesController < ApplicationController
   end
 
   def dish_params
-    params.require(:dish).permit(:name, :description, :price)
+    params.require(:dish).permit(:name, :description, :price, :diet_ids)
   end
 
   def find_dish
