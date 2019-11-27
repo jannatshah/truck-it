@@ -10,11 +10,17 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.new(schedule_params)
     @schedule.truck = @truck
     # IF SAVE LOGIC
-    @schedule.save
+    if @schedule.save
+      redirect_to @truck
+    else
+      # redirect_to edit_truck_path(@truck)
+      render 'trucks/edit'
+    end
   end
 
   def edit
     @schedule = Schedule.find(params[:id])
+    @truck = @schedule.truck
   end
 
   def update
