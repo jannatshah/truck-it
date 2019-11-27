@@ -2,17 +2,17 @@
 
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :name %>
-  <%= f.input :description %>
+  <%= f.input :name, label: "What's your name?" %>
+  <%= f.input :description, label: "Describe your food truck in a few words" %>
   <%= f.input :category, :collection => [
       'Chinese', 'Indian', 'Thai', 'Mexican', 'Lebanese', 'Italian', 'Kebabs',
       'Burgers', 'Hot dogs', 'Ice cream', 'Donuts', 'Pancakes', 'Brazilian', 'Tapas',
       'Caribbean', 'French', 'Greek', 'Turkish', 'Indonesian', 'Fries', 'Jamaican',
       'Ethiopian', 'Kosher', 'Levantine', 'Polish', 'Peruvian', 'Bratwurst', 'Malay',
       'Singaporean', 'Vietnamese', 'Korean BBQ', 'Corn Dogs', 'Fish & chips', 'Argentine'
-    ]%>
-  <%= f.input :card, input_html: { class: "text-center" } %>
-  <%= f.input :photo, as: :file, input_html: { class: "text-center" } %>
+    ], label: "What cuisine do you offer? Select below" %>
+  <%= f.input :card, input_html: { class: "text-center" }, label: "Do you accept credit card?" %>
+  <%= f.input :photo, as: :file, input_html: { class: "text-center" }, label: "We suggest you add at least one photo here, but it\'s not mandatory" %>
   <div class="text-center">
     <%= f.button :submit, :class => "btn-primary"  %>
 
