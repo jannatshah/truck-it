@@ -47,6 +47,8 @@ class TrucksController < ApplicationController
     authorize @truck
     @schedule = Schedule.new
     @schedule.truck = @truck
+    @dish = Dish.new
+    @dish.truck = @truck
   end
 
   def update

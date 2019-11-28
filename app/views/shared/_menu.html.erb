@@ -9,7 +9,7 @@
       <p><%= dish.name %></p>
         <em class="op"><%= dish.description %></em>
         <div class="d-flex justify-content-between">
-          <p><%= dish.price %></p><span class="text-danger"></span>
+          <p>£<%= dish.price %></p><span class="text-danger"></span>
           <div>
             <i class="fas fa-fish px-3"></i>
             <i class="fas fa-coffee"></i>
@@ -24,7 +24,11 @@
     <div class="card-body">
       <div class="d-flex justify-content-around w-100" aria-labelledby="dropdownMenuLink">
         <a class="text-center" href="#">-</a>
-        <a class="text-center" href="#">+</a>
+        <!-- <a class="text-center" href="#">+</a> -->
+        <% if current_user.orders.last.nil? %>
+          <% Order.create!(user_id: current_user.id) %>
+        <% end %>
+          <%= link_to '+', order_selections_path(Order.find(current_user.orders.last.id), dish_id: dish.id), method: :post %>
       </div>
     </div>
   </div>

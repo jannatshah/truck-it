@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
   end
 
-  resources :orders, only: [:show]
+  resources :orders, only: [:show] do
+    resources :selections, only: [:new, :create, :destroy]
+  end
   resources :diets, only: [:new, :create]
 end

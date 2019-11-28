@@ -3,5 +3,6 @@
   <p> <%= s.location %> </p>
   <p>Hours: <%= s.start_time.hour %> - <%= s.end_time.hour %>
   <p>Put Description Here</p>
-<p><%= link_to 'Go to Truck'%></p>
+  <p><%= link_to 'Go to Truck', truck_path(s.truck) %></p>
+
 </div>

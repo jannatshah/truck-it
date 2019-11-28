@@ -3,31 +3,68 @@
   <div class = "row justify-content-center">
     <div class="col-12 col-sm-6 pt-5">
     <h2>Update your truck info here</h2>
-
+    <br>
     <%= render 'trucks/form', truck: @truck %>
 
-    <div>
-    <br>
-    <br>
-    <h3>
-      <%= "Opening Hours" %>
-    </h3>
-    <br>
-  <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |d| %>
-      <% if @truck.schedules.where(day: d).size == 0 %>
-        <p class="d-flex justify-content-between px-3"><span><%= d %></span><span>closed</span></p>
-      <% else %>
-        <%  day = @truck.schedules.where(day: d).last %>
-        <p class="d-flex justify-content-between px-3"><span><%= d %></span><span><span class="open-time"><%= day.start_time.hour %></span> - <span class="close-time"><%= day.end_time.hour %></span>
-      <% end %>
-    <% end %>
-    <br>
-    <br>
+      <div>
+        <br>
+        <br>
+        <h3>Opening Hours</h3>
+        <br>
+          <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |d| %>
+            <% if @truck.schedules.where(day: d).size == 0 %>
+              <p class="d-flex justify-content-between px-3"><span><%= d %></span><span>closed</span></p>
+            <% else %>
+              <%  day = @truck.schedules.where(day: d).last %>
+              <p class="d-flex justify-content-between px-3"><span><%= d %></span><span><span class="open-time"><%= day.start_time.to_s[11..15] %></span> - <span class="close-time"><%= day.end_time.to_s[11..15] %></span>
+            <% end %>
+          <% end %>
+        <br>
+        <br>
+      </div>
+
+      <h3>Add a Schedule</h3>
+      <%= render 'schedules/new', schedule: @schedule %>
     </div>
 
-    <h3>Add a Schedule</h3>
-    <%= render 'schedules/new', schedule: @schedule %>
-    <p class="text-center"> <%= link_to 'Back', trucks_path %></p>
+  </div>
+
+  <div class = "row justify-content-center">
+    <div class="col-12 col-sm-6 pt-5">
+      <h3>You currently offer <%= pluralize @truck.dishes.size, "dish" %> on TruckIt</h3>
+      <br>
+      <% @truck.dishes.each do |dish| %>
+        <p>
+          <div class="dish pt-2">
+            <p><%= dish.name %></p>
+              <em class="op"><%= dish.description %></em>
+              <div class="d-flex justify-content-between">
+                <p>£<%= dish.price %></p><span class="text-danger"></span>
+                <div>
+                  <!-- <i class="fas fa-fish px-3"></i>
+                  <i class="fas fa-coffee"></i> -->
+                  <!-- Want to be able to edit a dish -->
+                  <%= link_to edit_truck_dish_path(dish.truck, dish) do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                  <!-- Want to be able to destroy a dish -->
+                  <%= link_to truck_dish_path(dish.truck, dish), :method => 'delete' do %>
+                    <i class="fas fa-trash-alt"></i>
+                  <% end %>
+                </div>
+              </div>
+          </div>
+        </p>
+      <% end %>
     </div>
   </div>
+
+  <div class = "row justify-content-center">
+    <div class="col-12 col-sm-6 pt-5">
+      <h3>Add another dish here</h3>
+      <%= render 'dishes/form', dish: @dish %>
+    </div>
+  </div>
+
+  <p class="text-center"> <%= link_to 'Back', trucks_path %></p>
 </div>

@@ -1,7 +1,6 @@
  <div class="card-row">
   <div class="card">
     <div class="row no-gutters">
-      <!-- <div class="col-5" style="background-image: url('https://www.glutenfreepalate.com/wp-content/uploads/2016/03/Vanilla-Birthday-Cake-Donuts-4.2-720x405.jpg'); background-size: cover; background-repeat: no-repeat;"> -->
 
       <% if truck.photo.attached? %>
         <div class="col-5 card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path truck.photo.key, crop: :fill %>')"></div>
@@ -35,7 +34,9 @@
       <%= link_to "Update", edit_truck_path(truck), class: 'btn-card-truck-edit' %>
     <% end %>
     <!-- open or not -->
-    <div class="open"></div>
+    <% button_color = truck.open? ? "open" : "closed" %>
+    <div class="<%= button_color %>"></div>
   </div>
 </div>
 
+<div class="start"><% truck.schedules %></div>

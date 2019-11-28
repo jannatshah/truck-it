@@ -4,7 +4,7 @@
         <p class="d-flex justify-content-between px-3"><span><%= d %></span><span>closed</span></p>
       <% else %>
         <%  day = @truck.schedules.where(day: d).last %>
-        <p class="d-flex justify-content-between px-3"><span><%= d %></span><span><span class="open-time"><%= day.start_time.hour %></span> - <span class="close-time"><%= day.end_time.hour %></span></span></p>
+        <p class="d-flex justify-content-between px-3"><span><%= d %></span><span><span class="open-time"><%= day.start_time.to_s[11..15] %></span> - <span class="close-time"><%= day.end_time.to_s[11..15] %></span></span></p>
       <% end %>
     <% end %>
   </div>

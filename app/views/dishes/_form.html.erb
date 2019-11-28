@@ -3,9 +3,9 @@
 
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
+  <%= f.input :name, label: "What is your dish called?" %>
+  <%= f.input :description, label: "Describe the dish in a few words, short and sweet" %>
+  <%= f.input :price, label: "What do you charge?" %>
   <input type="hidden" name="dish[diet_ids][]" value="">
   <div class="diet-requirements">
     <% Diet.all.each do |diet| %>
