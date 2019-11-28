@@ -1,2 +1,5 @@
 <!-- show.html.erb -->
 <h1>Orders#show</h1>
+<% @order.selections.each do |selection| %>
+<p><%= selection.dish_id %></p>
+<% end %>
