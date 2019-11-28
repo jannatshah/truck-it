@@ -1,5 +1,5 @@
 <div class="basket">
-  <% unless current_user.orders.nil? %>
+  <% unless current_user.orders.last.nil? %>
     <%= link_to order_path(current_user.orders.last) do %>
       <i class="fas fa-shopping-basket"></i>
     <% end %>
