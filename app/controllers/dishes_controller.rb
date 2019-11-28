@@ -15,7 +15,7 @@ class DishesController < ApplicationController
       diet_ids.each do |diet_id|
         DishDiet.create(dish: @dish, diet: Diet.find(diet_id))
       end
-      redirect_to truck_path(@truck)
+      redirect_to edit_truck_path(@truck)
     else render :new
     end
   end
@@ -26,7 +26,7 @@ class DishesController < ApplicationController
   def update
     @dish.update(dish_params)
     if @dish.save
-      redirect_to truck_path(@truck)
+      redirect_to edit_truck_path(@truck)
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class DishesController < ApplicationController
   def destroy
     @dish.destroy
     @truck = @dish.truck
-    redirect_to truck_path(@truck)
+    redirect_to edit_truck_path(@truck)
   end
 
   private
