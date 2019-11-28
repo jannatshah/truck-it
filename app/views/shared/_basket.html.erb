@@ -1,7 +1,8 @@
 <div class="basket">
-  <%= link_to order_path(current_user.orders.last) do %>
-    <i class="fas fa-shopping-basket"></i>
+  <% unless current_user.orders.nil? %>
+    <%= link_to order_path(current_user.orders.last) do %>
+      <i class="fas fa-shopping-basket"></i>
+    <% end %>
   <% end %>
-
 </div>
 
