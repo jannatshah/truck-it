@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^dishes$)/
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^diets$)/
-    # devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^orders$)/
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^selections$)/
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^orders$)/
     # devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^schedules$)/
   end
 end

@@ -1,5 +1,5 @@
 <div class="basket">
-  <%= link_to order_path do %>
+  <%= link_to order_path(current_user.orders.last) do %>
     <i class="fas fa-shopping-basket"></i>
   <% end %>
 
