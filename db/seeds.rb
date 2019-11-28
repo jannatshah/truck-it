@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Preparing diets..."
 
-diets = ["Vegan", "Vegetarian", "Halal", "Kosher",
+diets = ["Vegan", "Vegetarian", "Spicy", "Halal", "Kosher",
         "Lacto free", "Gluten free", "Nut free", "Sugar free"]
 diets.each do |diet|
   Diet.create(requirement: diet)
