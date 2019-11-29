@@ -27,7 +27,7 @@
           <%= link_to '-', '#'%>
         <% end %>
           <% if dish.selections.any? %>
-            <%= link_to '-', selection_path(dish.selections.last), method: :delete, remote: true, id:"s_#{dish.id}" %>
+            <%= link_to '-', selection_path(dish.selections.last), method: :delete, remote: true, id:"s_#{dish.id}" , class: "button-selection" %>
           <% else %>
               <span id="disbaled_link">-</span>
           <% end %>
@@ -35,7 +35,7 @@
         <% if current_user.orders.last.nil? %>
           <% Order.create!(user_id: current_user.id) %>
         <% end %>
-          <%= link_to '+', order_selections_path(Order.find(current_user.orders.last.id), dish_id: dish.id), method: :post, remote: true%>
+          <%= link_to '+', order_selections_path(Order.find(current_user.orders.last.id), dish_id: dish.id), method: :post, remote: true , class: "button-selection" %>
       </div>
     </div>
   </div>
