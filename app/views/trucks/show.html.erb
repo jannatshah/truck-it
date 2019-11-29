@@ -8,5 +8,10 @@
     <%= render 'shared/schedule' %>
     <%= render 'shared/menu' %>
 </div>
+<div class= "row">
+  <% if policy(@truck).edit? %>
+      <%= link_to "Update", edit_truck_path(@truck), class: 'button-truck col-10 offset-1' %>
+    <% end %>
+</div>
 <!-- basket on the bottom of this file -->
 <%= render 'shared/basket' %>
