@@ -1,0 +1,10 @@
+number = parseInt(document.getElementById('nr<%= @dish.id %>').innerText);
+document.getElementById('nr<%= @dish.id %>').innerText = number - 1;
+link = document.getElementById('s_<%= @dish.id %>');
+<% if @dish.selections.any? %>
+  link.id = 's_<%= @dish.id %>';
+  link.href = '/selections/<%= @dish.selections.last.id %>';
+<% else %>
+  link.href = '';
+  link.disabled = true;
+<% end %>

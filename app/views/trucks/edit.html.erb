@@ -29,7 +29,7 @@
             <p><%= dish.name %></p>
               <em class="op"><%= dish.description %></em>
               <div class="d-flex justify-content-between">
-                <p>£<%= dish.price %></p><span class="text-danger"></span>
+                <p>£<%= dish.price %></p>
                 <div>
                   <!-- <i class="fas fa-fish px-3"></i>
                   <i class="fas fa-coffee"></i> -->
@@ -55,6 +55,4 @@
       <%= render 'dishes/form', dish: @dish %>
     </div>
   </div>
-
-  <p class="text-center"> <%= link_to 'Back', trucks_path %></p>
 </div>

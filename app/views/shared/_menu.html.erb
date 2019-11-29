@@ -23,12 +23,19 @@
   <div class="collapse" id="collapseExample<%= dish.id %>">
     <div class="card-body">
       <div class="d-flex justify-content-around w-100" aria-labelledby="dropdownMenuLink">
-        <a class="text-center" href="#">-</a>
-        <!-- <a class="text-center" href="#">+</a> -->
+        <% if current_user.orders.last.nil? %>
+          <%= link_to '-', '#'%>
+        <% end %>
+          <% if dish.selections.any? %>
+            <%= link_to '-', selection_path(dish.selections.last), method: :delete, remote: true, id:"s_#{dish.id}" %>
+          <% else %>
+              <span id="disbaled_link">-</span>
+          <% end %>
+        <span id="nr<%= dish.id %>"><%= dish.selections.size %></span>
         <% if current_user.orders.last.nil? %>
           <% Order.create!(user_id: current_user.id) %>
         <% end %>
-          <%= link_to '+', order_selections_path(Order.find(current_user.orders.last.id), dish_id: dish.id), method: :post %>
+          <%= link_to '+', order_selections_path(Order.find(current_user.orders.last.id), dish_id: dish.id), method: :post, remote: true%>
       </div>
     </div>
   </div>
