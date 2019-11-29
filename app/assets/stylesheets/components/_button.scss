@@ -1,13 +1,17 @@
 .button-truck {
   color: white;
-  background: $main;
-  width: 100%;
+  background: #0d0d0d;
+  width: 35%;
   padding: 12px 0;
   border-radius: 8px;
   box-shadow: 1px 1px 6px rgba(0,0,0, 0.5);
   text-align: center;
   text-decoration: none;
   font-size: 1.2em;
+  margin-top: 32px;
+  // position: relative;
+  // bottom: 0;
+  // left: 200px;
   // font-weight: bold;
 
   &:hover {
