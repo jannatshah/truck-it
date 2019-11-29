@@ -6,18 +6,25 @@
   <%= f.input :name, label: "What is your dish called?" %>
   <%= f.input :description, label: "Describe the dish in a few words, short and sweet" %>
   <%= f.input :price, label: "What do you charge?" %>
-  <input type="hidden" name="dish[diet_ids][]" value="">
-  <div class="diet-requirements">
-    <% Diet.all.each do |diet| %>
-      <div class="diet-requirement">
-        <input type="checkbox" class="hidden" value="<%= diet.id %>" name="dish[diet_ids][]" id="dish_diet_ids_<%= diet.id %>">
-        <label for="dish_diet_ids_<%= diet.id %>">
-          <%= diet.requirement %>
-        </label>
-      </div>
-    <% end %>
+
+  <div class="form-group">
+    <input type="hidden" name="dish[diet_ids][]" value="">
+
+    <div class="diet-choices">
+      <% Diet.all.each do |diet| %>
+          <input hidden type="checkbox" value="<%= diet.id %>" name="dish[diet_ids][]" id="dish_diet_ids_<%= diet.id %>">
+          <label onclick="this.classList.toggle('checked')" class="diet-choice" for="dish_diet_ids_<%= diet.id %>">
+            <p><%= diet.requirement %></p>
+          </label>
+      <% end %>
+    </div>
   </div>
 
-  <%= f.button :submit, :class => "btn-primary text-center"  %>
+  <div class="diet-requirements">
+  </div>
+
+  <%= f.button :submit, :class => "button-truck text-center"  %>
 
 <% end %>
+
+
