@@ -1,5 +1,12 @@
 <!-- show.html.erb -->
-<h1>Orders#show</h1>
-<% @order.selections.each do |selection| %>
-<p><%= selection.dish_id %></p>
-<% end %>
+<div class="container">
+  <h1 class="text-center" >Orders#show</h1>
+  <% @order.selections.each do |selection| %>
+  <div class="selection d-flex justify-content-center" style="border: 1px solid #bbb; padding: 1em; text-align: center;">
+    <span><%= selection.dish.name%></span>
+    <span> - </span>
+    <span><%= selection.dish.price%></span>
+  </div>
+
+  <% end %>
+</div>
