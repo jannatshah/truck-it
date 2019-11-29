@@ -1,7 +1,13 @@
 .logo {
   width: 100vw;
-  height: 60vh;
+  height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+
+.row m-3 {
+  display: flex;
+  justify-content: center;
 }

@@ -15,13 +15,15 @@ const initMapbox = () => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/mapbox/streets-v10',
+      center: [-0.1278, 51.5074],
+      zoom: 11
     });
 
     map.scrollZoom.disable();
 
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                     placeholder: 'Search for a Truck!', mapboxgl: mapboxgl }));
+                                     placeholder: 'Search Trucks!', mapboxgl: mapboxgl }));
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
@@ -33,8 +35,8 @@ const initMapbox = () => {
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
-      element.style.width = '25px';
-      element.style.height = '25px';
+      element.style.width = '40px';
+      element.style.height = '40px';
 
       new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
