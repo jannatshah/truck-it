@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:show] do
-    resources :selections, only: [:new, :create, :destroy]
+    resources :selections, only: [:new, :create]
   end
+  resources :selections, only: [:destroy]
   resources :diets, only: [:new, :create]
 end
