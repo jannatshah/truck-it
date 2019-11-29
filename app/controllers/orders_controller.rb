@@ -3,6 +3,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @total_price = []
+    @order.selections.each do |selection|
+      @total_price << selection.dish.price
+    end
+
   end
 
   def new

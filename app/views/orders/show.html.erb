@@ -1,12 +1,22 @@
 <!-- show.html.erb -->
 <div class="container">
-  <h1 class="text-center" >Orders#show</h1>
-  <% @order.selections.each do |selection| %>
-  <div class="selection d-flex justify-content-center" style="border: 1px solid #bbb; padding: 1em; text-align: center;">
-    <span><%= selection.dish.name%></span>
-    <span> - </span>
-    <span><%= selection.dish.price%></span>
-  </div>
+  <h1 class="reciept-header text-center" >RECIEPT</h1>
+  <% @order.selections.each_with_index do |selection, index| %>
+
+    <div class="selection">
+      <span class="col-1 p-0"><%= index + 1 %></span>
+      <span class="col-1 p-0"> - </span>
+      <span class="col-7 p-0 text-left"> <%= selection.dish.name%></span>
+      <span class="col-1 p-0"> - </span>
+      <span class="col-2 p-0 text-right"><%= selection.dish.price%></span>
+    </div>
 
   <% end %>
+
+    <h4 class="col-12 my-3 text-right">To pay: <%= @total_price.sum %></h4>
+
+<div class="row">
+    <%= link_to 'Confirm and pay', '#', class: 'col-10 offset-1 my-3 button-truck reciept-pay'  %>
+</div>
+
 </div>
