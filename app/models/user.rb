@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_many :selections, through: :orders
   # has_many :selections, dependent: :destroy
   has_one :truck
-  monetize :amount_cents
 end
