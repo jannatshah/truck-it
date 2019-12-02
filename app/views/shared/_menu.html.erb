@@ -11,8 +11,30 @@
         <div class="d-flex justify-content-between">
           <p>£<%= dish.price %></p><span class="text-danger"></span>
           <div>
-            <i class="fas fa-fish px-3"></i>
-            <i class="fas fa-coffee"></i>
+            <% dish.diets.each do |diet| %>
+              <% if diet.requirement == "Vegetarian" %>
+                <!-- <i class="fab fa-vuejs"></i> -->
+                 <img class="requirement-img" src="https://images-na.ssl-images-amazon.com/images/I/61ySEDKPmtL._SY355_.jpg" alt="">
+              <% elsif diet.requirement == "Vegan" %>
+                <img class="requirement-img" src="https://cdn3.vectorstock.com/i/1000x1000/47/62/vegan-sign-or-stamp-vector-22714762.jpg" alt="">
+              <% elsif diet.requirement == "Spicy" %>
+                <span class="mdi mdi-chili-medium"></span>
+              <% elsif diet.requirement == "Halal" %>
+              <img class="requirement-img" src="https://images-na.ssl-images-amazon.com/images/I/71MFUTnn5eL._SL1500_.jpg" alt="">
+              <% elsif diet.requirement == "Kosher" %>
+              <img class="requirement-img" src="https://qph.fs.quoracdn.net/main-qimg-9c8f1d1b32f603369167992be81949e8.webp" alt="">
+              <% elsif diet.requirement == "Lacto free" %>
+              <img class="requirement-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAveqEO6LHyfUJlYCeMYMQuCA1M4B9iyv-5DOlF223e4iPS2Oe&s" alt="">
+              <% elsif diet.requirement == "Gluten free" %>
+              <img class="requirement-img" src="https://st4.depositphotos.com/5613078/25049/v/1600/depositphotos_250499070-stock-illustration-vector-gluten-free-symbols-white.jpg" alt="">
+              <% elsif diet.requirement == "Sugar free" %>
+              <img class="requirement-img" src="https://image.shutterstock.com/image-vector/round-green-label-text-sugar-260nw-663807637.jpg" alt="">
+              <% else %>
+                <i class="fas fa-coffee"></i>
+              <% end %>
+            <% end %>
+           <!--  <i class="fas fa-fish px-3"></i>
+            <i class="fas fa-coffee"></i> -->
           </div>
         </div>
     </div>
