@@ -22,6 +22,17 @@ class TrucksController < ApplicationController
 
   def show
     authorize @truck
+    @trucks = policy_scope(Truck)
+    @schedules = @trucks.map { |truck| truck.schedules }.flatten
+    @markers = @schedules.select { |schedule| Date::DAYNAMES.index(schedule.day) == Date.today.wday }.map { |s|
+      {
+        lat: s.latitude,
+        lng: s.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { s: s }),
+        image_url: helpers.asset_url('truck_icon.png')
+      }}
+      @schedule = Schedule.find(params[:id])
+
     # @dishes = @truck.dishes unless @truck.dishes.nil?
   end
 

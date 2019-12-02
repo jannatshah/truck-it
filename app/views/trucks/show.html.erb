@@ -13,5 +13,12 @@
       <%= link_to "Update", edit_truck_path(@truck), class: 'button-truck col-10 offset-1' %>
     <% end %>
 </div>
+
+<% today = Date.today.strftime("%A") %>
+<% if @truck.schedules.where(day: today).size != 0 %>
+  <div class="truck-map" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/url-https%3A%2F%2Fimg.icons8.com%2Fios-filled%2F50%2F000000%2Ftruck.png(<%= @schedule.longitude %>,<%= @schedule.latitude %>)/<%= @schedule.longitude %>,<%= @schedule.latitude %>,15/1000x1000?access_token=pk.eyJ1Ijoidml0bjk0IiwiYSI6ImNrMm9rdmx6czExNG8zbmxud2JrOGYzNWkifQ.jV5ElZLNIiqd8zU-hTZnGA')"></div>
+<% end %>
 <!-- basket on the bottom of this file -->
+
 <%= render 'shared/basket' %>
+
