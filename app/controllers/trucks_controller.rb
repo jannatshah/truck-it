@@ -22,6 +22,8 @@ class TrucksController < ApplicationController
 
   def show
     authorize @truck
+    @review = Review.new
+
     @trucks = policy_scope(Truck)
     @schedules = @trucks.map { |truck| truck.schedules }.flatten
     @markers = @schedules.select { |schedule| Date::DAYNAMES.index(schedule.day) == Date.today.wday }.map { |s|
@@ -35,7 +37,6 @@ class TrucksController < ApplicationController
       today = Date.today.strftime("%A")
       schedule = Schedule.where(day: today).first
       @schedule = Schedule.find(schedule[:id])
-
 
     # @dishes = @truck.dishes unless @truck.dishes.nil?
   end
