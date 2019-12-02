@@ -12,7 +12,6 @@ class TrucksController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { s: s }),
         image_url: helpers.asset_url('truck_icon.png')
       }}
-
     # @markers = @trucks.map do |truck|
     #   {
     #     lat: s.latitude,

@@ -9,22 +9,27 @@
       <% end %>
 
       <div class="col-7">
-        <div class="card-body text-right py-3 px-2">
+        <div class="card-body text-right py-2 px-2">
           <!-- <div class="card-head d-flex justify-content-between"> -->
-            <h5 class="card-title text-right"><%= truck.name %></h5>
+          <h5 class="card-title text-right"><%= truck.name %></h5>
           <!-- </div> -->
           <em class=""><%= truck.category %></em>
 
-          <div class="card-head d-flex justify-content-between">
-            <% if truck.card %>
-              <i class="fab fa-cc-visa"></i>
-            <% end %>
-            <div class="rating w-100">
-              <% 5.times do %>
-                <i class="far fa-star"></i>
+          <!-- <div class="card-head"> -->
+            <div class="opening-times w-100">
+              <% today = Date.today.strftime("%A") %>
+              <% if truck.schedules.where(day: today).size != 0 %>
+                <span>opens: <%= truck.schedules.where(day: today).last.start_time.to_s[11..15] %></span>
+                <span>- <%= truck.schedules.where(day: today).last.end_time.to_s[11..15] %></span>
               <% end %>
             </div>
-          </div>
+            <div class="rating d-flex justify-content-between w-100">
+              <% if truck.card %>
+                <p><span class="fab fa-cc-visa"></span></p>
+              <% end %>
+              <p class='text-right w-100'>4.7<span class="far fa-star"></span>(11)</p>
+            </div>
+          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -34,8 +39,8 @@
       <%= link_to "Update", edit_truck_path(truck), class: 'btn-card-truck-edit' %>
     <% end %>
     <!-- open or not -->
-    <% button_color = truck.open? ? "open" : "closed" %>
-    <div class="<%= button_color %>"></div>
+<!--     button_color = truck.open? ? "open" : "closed" %>
+    <div class="< button_color %>"></div> -->
   </div>
 </div>
 

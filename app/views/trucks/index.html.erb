@@ -6,13 +6,28 @@
 ></div>
 
 
-<div class="container truck-list">
-  <h4>Swipe up</h4>
+<div class="truck-list">
+  <h4 class="mx-3">Swipe up</h4>
 
-  <% @trucks.each do |truck| %>
-    <%= link_to truck_path(truck) do %>
-      <%= render 'shared/card', truck: truck %>
+  <div class="open-now p-3">
+    <h5 class='list-title'>serving right now</h5>
+    <% @trucks.each do |truck| %>
+      <% if truck.open? %>
+        <%= link_to truck_path(truck) do %>
+          <%= render 'shared/card', truck: truck %>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
+  <div class="closed-now p-3">
+    <h5 class='list-title'>opening soon</h5>
+    <% @trucks.each do |truck| %>
+      <% if truck.open? != true %>
+        <%= link_to truck_path(truck) do %>
+          <%= render 'shared/card', truck: truck %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
