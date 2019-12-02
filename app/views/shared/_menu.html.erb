@@ -25,13 +25,12 @@
       <div class="d-flex justify-content-around w-100" aria-labelledby="dropdownMenuLink">
         <% if current_user.orders.last.nil? %>
           <%= link_to '-', '#'%>
-        <% end %>
-          <% if dish.selections.any? %>
-            <%= link_to '-', selection_path(dish.selections.last), method: :delete, remote: true, id:"s_#{dish.id}" , class: "button-selection" %>
+          <% elsif dish.selections.where(order: current_user.orders).any? %>
+            <%= link_to '-', selection_path(dish.selections.where(order: current_user.orders&.last).last), method: :delete, remote: true, id:"s_#{dish.id}" , class: "button-selection" %>
           <% else %>
-              <span id="disbaled_link">-</span>
+              <span id="disabled_link">-</span>
           <% end %>
-        <span id="nr<%= dish.id %>"><%= dish.selections.size %></span>
+        <span id="nr<%= dish.id %>"><%= dish.selections.where(order: current_user.orders).size %></span>
         <% if current_user.orders.last.nil? %>
           <% Order.create!(user_id: current_user.id) %>
         <% end %>

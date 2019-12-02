@@ -1,9 +1,11 @@
 number = parseInt(document.getElementById('nr<%= @dish.id %>').innerText);
 document.getElementById('nr<%= @dish.id %>').innerText = number - 1;
 link = document.getElementById('s_<%= @dish.id %>');
-<% if @dish.selections.any? %>
+<% if @dish.selections.where(order: current_user.orders).any? %>
   link.id = 's_<%= @dish.id %>';
-  link.href = '/selections/<%= @dish.selections.last.id %>';
+  // link.href = '/selections/<%= @dish.selections.last.id %>';
+  link.href = '/selections/<%= @dish.selections.where(order: current_user.orders.last).last.id %>';
+
 <% else %>
   link.href = '';
   link.disabled = true;

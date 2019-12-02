@@ -21,4 +21,9 @@ class SelectionsController < ApplicationController
   def selection_params
     params.permit(:dish_id, :order_id)
   end
+
+  def set_order
+    @order = Order.find(params[:order_id])
+  end
+
 end
