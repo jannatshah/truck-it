@@ -21,7 +21,9 @@
   color: rgba(0,0,0, .6);
   text-decoration: none;
 }
-
+.card .far, .card .fab {
+  color: $main;
+}
 // .open {
 //   width: 8px;
 //   height: 8px;

@@ -11,12 +11,19 @@
   top: -80px;
 }
 .basket {
-  position:fixed;
-  right:40px;
-  top:20px;
+  height: 60px;
+  width: 60px;
+  position: fixed;
+  top: 80px;
+  right: 20px;
   font-size: 2em;
+  background: $main;
+  border-radius: 50%;
+  padding: 0;
+  border: 5px solid rgba(0,0,0, .9);
+  text-align: center;
   & i, i:hover  {
-    color: $main;
+    color: #fff;
     text-shadow: 1px 2px 12px rgba(0,0,0, .4);
   }
 }
