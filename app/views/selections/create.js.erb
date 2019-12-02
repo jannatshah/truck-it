@@ -1,6 +1,6 @@
 number = parseInt(document.getElementById('nr<%= @dish.id %>').innerText);
 document.getElementById('nr<%= @dish.id %>').innerText = number + 1;
-link = document.getElementById('disabled_link');
+link = document.getElementById('disabled_link_<%= @dish.id %>');
 if (link) {
   link.outerHTML = '<a id="s_<%= @dish.id %>" data-remote="true" rel="nofollow" data-method="delete" href="/selections/<%= @dish.selections.last.id %>">-</a>';
 }
