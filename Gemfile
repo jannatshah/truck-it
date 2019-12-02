@@ -3,7 +3,6 @@ ruby '2.6.3'
 
 gem 'cloudinary', '~> 1.12.0'
 
-
 gem 'bootsnap', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
@@ -36,4 +35,8 @@ gem 'validates_timeliness', '~> 5.0.0.alpha3'
 
 gem 'pundit'
 gem 'geocoder'
+
+# Money and payments
 gem 'money-rails'
+gem 'stripe'
+gem 'stripe_event'
