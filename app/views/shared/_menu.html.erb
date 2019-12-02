@@ -25,14 +25,14 @@
       <div class="d-flex justify-content-around w-100" aria-labelledby="dropdownMenuLink">
         <% if current_user.orders.last.nil? %>
           <%= link_to '-', '#'%>
-          <% elsif dish.selections.where(order: current_user.orders).any? %>
-            <%= link_to '-', selection_path(dish.selections.where(order: current_user.orders&.last).last), method: :delete, remote: true, id:"s_#{dish.id}" , class: "button-selection" %>
-          <% else %>
-              <span id="disabled_link">-</span>
-          <% end %>
-        <span id="nr<%= dish.id %>"><%= dish.selections.where(order: current_user.orders).size %></span>
-        <% if current_user.orders.last.nil? %>
-          <% Order.create!(user_id: current_user.id) %>
+        <% elsif dish.selections.where(order: current_user.orders).any? && dish.selections.where(order: current_user.orders&.last).size > 0%>
+          <%= link_to '-', selection_path(dish.selections.where(order: current_user.orders&.last).last), method: :delete, remote: true, id:"s_#{dish.id}" , class: "button-selection" %>
+        <% else %>
+            <span id="disabled_link">-</span>
+        <% end %>
+        <span id="nr<%= dish.id %>"><%= dish.selections.where(order: current_user.orders.where(state: "pending")).size %></span>
+        <% if current_user.orders.last.nil? || current_user.orders.last.state == "paid" %>
+          <% Order.create!(user_id: current_user.id, state: 'pending') %>
         <% end %>
           <%= link_to '+', order_selections_path(Order.find(current_user.orders.last.id), dish_id: dish.id), method: :post, remote: true , class: "button-selection" %>
       </div>

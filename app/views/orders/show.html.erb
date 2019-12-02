@@ -16,7 +16,7 @@
     <h4 class="col-12 my-3 text-right">To pay: <%= @total_price.sum %></h4>
 
 <div class="row">
-    <%= link_to 'Confirm and pay', '#', class: 'col-10 offset-1 my-3 button-truck reciept-pay'  %>
+    <%= link_to 'Confirm and pay', create_session_order_path(@order), class: 'col-10 offset-1 my-3 button-truck reciept-pay'  %>
 </div>
 
 </div>

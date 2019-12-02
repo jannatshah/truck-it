@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :orders, dependent: :destroy
+  has_many :orders
   has_many :selections, through: :orders
   # has_many :selections, dependent: :destroy
   has_one :truck
+  monetize :amount_cents
 end
