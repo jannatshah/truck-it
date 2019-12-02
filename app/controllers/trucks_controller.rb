@@ -77,6 +77,7 @@ class TrucksController < ApplicationController
   end
 
   def destroy
+    authorize @truck
     @truck.destroy
     redirect_to root_path
   end
