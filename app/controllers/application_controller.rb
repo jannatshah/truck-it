@@ -24,4 +24,8 @@ class ApplicationController < ActionController::Base
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^payments$)/
     # devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^schedules$)/
   end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 end
