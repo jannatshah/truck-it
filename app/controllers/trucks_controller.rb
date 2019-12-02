@@ -31,7 +31,11 @@ class TrucksController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { s: s }),
         image_url: helpers.asset_url('truck_icon.png')
       }}
-      @schedule = Schedule.find(params[:id])
+      # @schedule = Schedule.find([:id])
+      today = Date.today.strftime("%A")
+      schedule = Schedule.where(day: today).first
+      @schedule = Schedule.find(schedule[:id])
+
 
     # @dishes = @truck.dishes unless @truck.dishes.nil?
   end
