@@ -5,7 +5,6 @@ link = document.getElementById('s_<%= @dish.id %>');
   link.id = 's_<%= @dish.id %>';
   // link.href = '/selections/<%= @dish.selections.last.id %>';
   link.href = '/selections/<%= @dish.selections.where(order: current_user.orders.last).last.id %>';
-
 <% else %>
   link.href = '';
   link.disabled = true;

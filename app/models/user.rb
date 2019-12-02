@@ -9,5 +9,4 @@ class User < ApplicationRecord
   # has_many :selections, dependent: :destroy
   has_one :truck
   has_many :reviews
-  monetize :amount_cents
 end

@@ -6,9 +6,12 @@
     <div class="selection">
       <span class="col-1 p-0"><%= index + 1 %></span>
       <span class="col-1 p-0"> - </span>
-      <span class="col-7 p-0 text-left"> <%= selection.dish.name%></span>
+      <span class="col-6 p-0 text-left"> <%= selection.dish.name%></span>
       <span class="col-1 p-0"> - </span>
       <span class="col-2 p-0 text-right"><%= selection.dish.price%></span>
+      <span class="col-1 p-0"> <%= link_to destroy_from_order_selection_path(selection), :method => 'delete' do %>
+                    <i class="fas fa-trash-alt"></i> </span>
+                    <% end %>
     </div>
 
   <% end %>

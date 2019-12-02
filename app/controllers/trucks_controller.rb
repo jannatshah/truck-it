@@ -23,7 +23,21 @@ class TrucksController < ApplicationController
   def show
     authorize @truck
     @review = Review.new
-    # raise
+
+    @trucks = policy_scope(Truck)
+    @schedules = @trucks.map { |truck| truck.schedules }.flatten
+    @markers = @schedules.select { |schedule| Date::DAYNAMES.index(schedule.day) == Date.today.wday }.map { |s|
+      {
+        lat: s.latitude,
+        lng: s.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { s: s }),
+        image_url: helpers.asset_url('truck_icon.png')
+      }}
+      # @schedule = Schedule.find([:id])
+      today = Date.today.strftime("%A")
+      schedule = Schedule.where(day: today).first
+      @schedule = Schedule.find(schedule[:id])
+
     # @dishes = @truck.dishes unless @truck.dishes.nil?
   end
 
@@ -64,6 +78,7 @@ class TrucksController < ApplicationController
   end
 
   def destroy
+    authorize @truck
     @truck.destroy
     redirect_to root_path
   end
