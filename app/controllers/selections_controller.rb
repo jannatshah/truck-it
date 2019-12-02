@@ -1,5 +1,5 @@
 class SelectionsController < ApplicationController
-  skip_after_action :verify_authorized, only: [:create, :destroy]
+  skip_after_action :verify_authorized, only: [:create, :destroy, :destroy_from_order]
 
   def create
     @selection = Selection.create(selection_params)
@@ -16,6 +16,13 @@ class SelectionsController < ApplicationController
     end
   end
 
+  def destroy_from_order
+    @selection = Selection.find(params[:id])
+    @dish = @selection.dish
+    @selection.destroy
+    redirect_to order_path(@selection.order)
+  end
+
   private
 
   def selection_params
@@ -25,5 +32,4 @@ class SelectionsController < ApplicationController
   def set_order
     @order = Order.find(params[:order_id])
   end
-
 end
