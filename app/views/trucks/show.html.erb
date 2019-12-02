@@ -1,6 +1,5 @@
 <% content_for :meta_title, "#{@truck.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @truck.description %>
-<% content_for :meta_image, cl_image_path(@truck.photo.path) %>
 
 
 <% if @truck.photo.attached? %>
