@@ -22,6 +22,8 @@ class TrucksController < ApplicationController
 
   def show
     authorize @truck
+    @review = Review.new
+    # raise
     # @dishes = @truck.dishes unless @truck.dishes.nil?
   end
 
