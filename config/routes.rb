@@ -49,6 +49,9 @@ Rails.application.routes.draw do
     collection do
       get 'tapas'
     end
+
+    get 'truck_orders', to: 'trucks#truck_orders', as: :truck_orders
+
   end
 
   resources :orders, only: [:show] do
@@ -59,7 +62,11 @@ Rails.application.routes.draw do
     end
     resources :selections, only: [:new, :create]
   end
-  resources :selections, only: [:destroy]
+  resources :selections, only: [:destroy] do
+    member do
+      delete 'destroy_from_order', to: 'selections#destroy_from_order', as: :destroy_from_order
+    end
+  end
   resources :diets, only: [:new, :create]
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'

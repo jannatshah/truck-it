@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
 
   def confirmation
     @order = Order.find(params[:id])
+    @order.update(state: 'paid')
   end
 
   def create_session

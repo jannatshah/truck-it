@@ -1,0 +1,28 @@
+
+<!-- show.html.erb -->
+<div class="container">
+  <h1 class="reciept-header text-center" >LIST OF ORDERS</h1>
+    <div class="headers">
+      <div class="row justify-content-end">
+      <span class="col-2 text-left"> <strong> Index</strong></span>
+      <span class="col-4 text-right"> <strong> Dish Name</strong></span>
+      <span class="col-6 text-right"><strong> No. of Orders</strong></span>
+      </div>
+    </div>
+
+  <% @dishes.each_with_index do |dish, index| %>
+
+    <% if dish.orders.count > 0 %>
+      <div class="selection">
+        <span class="col-1 p-0"><%= index + 1 %></span>
+        <span class="col-1 p-0"> - </span>
+        <span class="col-6 p-0 text-left"> <%= dish.name %></span>
+        <% @orders = dish.orders %>
+        <span class="col-1 p-0"> - </span>
+        <span class="col-2 p-0 text-right"><%= @orders.count%></span>
+      </div>
+    <% end %>
+
+  <% end %>
+
+</div>
