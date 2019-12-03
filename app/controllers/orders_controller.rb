@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
       success_url: confirmation_order_url(@order),
       cancel_url: confirmation_order_url(@order)
     )
-    @order.update(checkout_session_id: session.id, amount: amount)
+    @order.update(checkout_session_id: session.id, amount: amount, state: 'paid')
     redirect_to new_order_payment_path(@order)
   end
 

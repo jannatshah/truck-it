@@ -36,7 +36,7 @@ class TrucksController < ApplicationController
       # @schedule = Schedule.find([:id])
       today = Date.today.strftime("%A")
       schedule = Schedule.where(day: today).first
-      @schedule = Schedule.find(schedule[:id])
+      # @schedule = Schedule.find(schedule[:id])
 
     # @dishes = @truck.dishes unless @truck.dishes.nil?
   end
