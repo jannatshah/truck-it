@@ -27,6 +27,7 @@ class OrdersController < ApplicationController
 
   def confirmation
     @order = Order.find(params[:id])
+    @order.update(state: 'paid')
   end
 
   def create_session
@@ -51,7 +52,7 @@ class OrdersController < ApplicationController
       success_url: confirmation_order_url(@order),
       cancel_url: confirmation_order_url(@order)
     )
-    @order.update(checkout_session_id: session.id, amount: amount, state: 'paid')
+    @order.update(checkout_session_id: session.id, amount: amount)
     redirect_to new_order_payment_path(@order)
   end
 
