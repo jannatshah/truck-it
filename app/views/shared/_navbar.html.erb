@@ -3,7 +3,11 @@
   <a class="avatar dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <%= image_tag "truck_icon.png", class: "avatar dropdown-toggle"%>
   </a>
-  <span><strong>TRUCK-iT</strong></span>
+
+  <%= link_to root_path, class: 'truck-it' do %>
+    <span><strong>TRUCK-iT</strong></span>
+  <% end %>
+
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <% if user_signed_in? %>
       <li class="nav-item">
