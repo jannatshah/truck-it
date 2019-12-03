@@ -32,12 +32,14 @@ class TrucksController < ApplicationController
         lng: s.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { s: s }),
         image_url: helpers.asset_url('truck_icon.png')
-      }}
-      # @schedule = Schedule.find([:id])
-      today = Date.today.strftime("%A")
-      @schedule = @truck.schedules.last
-      # @schedule = Schedule.find(schedule[:id])
+      }
+    }
+    # @schedule = Schedule.find([:id])
+    today = Date.today.strftime("%A")
+    @schedule = @truck.schedules.where(day: today).last
 
+    @schedule = @truck.schedules.last if @schedule.nil?
+    # @schedule = Schedule.find(schedule[:id])
     # @dishes = @truck.dishes unless @truck.dishes.nil?
   end
 
