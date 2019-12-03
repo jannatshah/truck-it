@@ -23,7 +23,7 @@ const initMapbox = () => {
     map.scrollZoom.disable();
 
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-                                     placeholder: 'Search Trucks!', mapboxgl: mapboxgl }));
+                                     placeholder: 'Search a location!', mapboxgl: mapboxgl }));
 
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
