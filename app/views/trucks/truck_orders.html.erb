@@ -13,12 +13,14 @@
   <% @dishes.each_with_index do |dish, index| %>
 
     <div class="selection">
+      <% if dish.orders.count > 0 %>
       <span class="col-1 p-0"><%= index + 1 %></span>
       <span class="col-1 p-0"> - </span>
       <span class="col-6 p-0 text-left"> <%= dish.name %></span>
       <% @orders = dish.orders %>
       <span class="col-1 p-0"> - </span>
       <span class="col-2 p-0 text-right"><%= @orders.count%></span>
+      <% end %>
     </div>
 
   <% end %>
