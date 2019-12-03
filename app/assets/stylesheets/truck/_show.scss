@@ -27,7 +27,6 @@
     text-shadow: 1px 2px 12px rgba(0,0,0, .4);
   }
 }
-
 .truck-map {
   width: 100%;
   height: 80vh;
@@ -36,4 +35,22 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 20px;
+}
+
+#new_review {
+  // height: 30px;
+  .radio {
+    display: grid;
+  }
+  label {
+    padding: 0 16px;
+    font-size: 1.2em;
+    line-height: 30px;
+    color: rgba(0,0,0, .6);
+  }
+  .radio input{
+    height: 26px;
+    width: 26px;
+    vertical-align: middle;
+  }
 }
