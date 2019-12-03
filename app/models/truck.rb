@@ -21,7 +21,7 @@ class Truck < ApplicationRecord
   def avg_reviews
     return 0 if reviews.empty?
 
-    reviews.pluck(:rating).sum / reviews.size
+    (reviews.pluck(:rating).sum.to_f / reviews.size).round(1)
   end
 
   def open?

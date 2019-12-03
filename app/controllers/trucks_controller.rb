@@ -18,6 +18,7 @@ class TrucksController < ApplicationController
     #     lng: s.longitude
     #   }
     # end
+    # raise
   end
 
   def chinese
