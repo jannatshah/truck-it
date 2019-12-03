@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :dishes, except: [:index, :show]
     resources :reviews, only: [:new, :create]
     # resources :orders, only: [:new, :create]
+    get 'truck_orders', to: 'trucks#truck_orders', as: :truck_orders
+
   end
 
   resources :orders, only: [:show] do

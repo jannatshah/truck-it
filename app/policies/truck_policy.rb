@@ -26,4 +26,8 @@ class TruckPolicy < ApplicationPolicy
   def destroy?
     record.user == user || user&.admin?
   end
+
+  def truck_orders?
+    return true
+  end
 end
