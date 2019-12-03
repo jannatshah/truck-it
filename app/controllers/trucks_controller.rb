@@ -1,7 +1,7 @@
 class TrucksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :find_truck, only: %i[show edit update destroy]
-
+  before_action :set_trucks, only: %i[chinese indian thai mexican lebanese italian kebabs hot_dogs ice_cream donuts pancakes brazilian tapas]
   def index
     @trucks = policy_scope(Truck)
     @schedules = @trucks.map { |truck| truck.schedules }.flatten
@@ -18,6 +18,48 @@ class TrucksController < ApplicationController
     #     lng: s.longitude
     #   }
     # end
+  end
+
+  def chinese
+  end
+
+  def indian
+  end
+
+  def thai
+  end
+
+  def mexican
+  end
+
+  def lebanese
+  end
+
+  def italian
+  end
+
+  def kebabs
+  end
+
+  def burgers
+  end
+
+  def hot_dogs
+  end
+
+  def ice_cream
+  end
+
+  def donuts
+  end
+
+  def pancakes
+  end
+
+  def brazilian
+  end
+
+  def tapas
   end
 
   def show
@@ -68,10 +110,16 @@ class TrucksController < ApplicationController
     redirect_to root_path
   end
 
+
   private
 
   def find_truck
     @truck = Truck.find(params[:id])
+  end
+
+  def set_trucks
+    @trucks = policy_scope(Truck).where('category ILIKE ?', "%#{action_name}%")
+    authorize @trucks
   end
 
   def truck_params

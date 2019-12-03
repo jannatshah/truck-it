@@ -7,6 +7,48 @@ Rails.application.routes.draw do
     resources :dishes, except: [:index, :show]
     resources :reviews, only: [:new, :create]
     # resources :orders, only: [:new, :create]
+    collection do
+      get 'chinese'
+    end
+    collection do
+      get 'indian'
+    end
+    collection do
+      get 'thai'
+    end
+    collection do
+      get 'mexican'
+    end
+    collection do
+      get 'lebanese'
+    end
+    collection do
+      get 'italian'
+    end
+    collection do
+      get 'kebabs'
+    end
+    collection do
+      get 'burgers'
+    end
+    collection do
+      get 'hot_dogs'
+    end
+    collection do
+      get 'ice_cream'
+    end
+    collection do
+      get 'donuts'
+    end
+    collection do
+      get 'pancakes'
+    end
+    collection do
+      get 'brazilian'
+    end
+    collection do
+      get 'tapas'
+    end
   end
 
   resources :orders, only: [:show] do

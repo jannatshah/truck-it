@@ -14,7 +14,8 @@ class Truck < ApplicationRecord
       'Ethiopian', 'Kosher', 'Levantine', 'Polish', 'Peruvian', 'Bratwurst', 'Malay',
       'Singaporean', 'Vietnamese', 'Korean BBQ', 'Corn Dogs', 'Fish & chips', 'Argentine'
     ] }
-
+  CATEGORIES = ['chinese', 'indian', 'thai', 'mexican', 'lebanese', 'italian', 'kebabs',
+                'burgers', 'hot dogs', 'ice cream', 'donuts', 'pancakes', 'brazilian', 'tapas']
   has_one_attached :photo
 
   def avg_reviews
