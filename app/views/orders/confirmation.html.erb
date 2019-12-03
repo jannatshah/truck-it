@@ -1,16 +1,18 @@
 <!-- app/views/orders/show.html.erb -->
 <div class="container">
-  <div class="row py-4">
+  <div class="row py-4 justify-content-center">
     <div class="col-md-3"><%#= image_tag @order.teddy.photo_url, width: '100%' %></div>
     <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
-      <ul class="list-unstyled">
+      <h1 class="reciept-header d-flex">Order #<%= @order.id %>   <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
+      <ul class="list-unstyled selection">
         <li><strong>ISSUED ON</strong> <%= @order.created_at.to_date %></li>
-        <li><strong>MEAL</strong></li>
         <li><strong>TOTAL</strong> <%= humanized_money_with_symbol @order.amount %></li>
         </li>
       </ul>
-      <p>Your order will be ready to collect from the truck in <strong>10-15 minutes</strong></p>
+      <p>Your order will be ready to collect from <%= @order.selections.last.dish.truck.name %> in <strong class="badge badge-success">10-15 minutes</strong> 🎉</p>
+      <br>
+      <a href="/" class="button-home">Browse more good food</a>
     </div>
   </div>
+</div>
 </div>
