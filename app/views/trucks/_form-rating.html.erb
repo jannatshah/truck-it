@@ -3,6 +3,7 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   <%= f.input :rating, :collection => [1,2,3,4,5] %>
+  <%= f.collection_radio_buttons :rating, [[1, '1'], [2, '2'], [3, '3'], [4, '4'], [5, '5'] ], :first, :last  %>
   <div class="text-center d-flex ">
     <%= f.button :submit, :class => "button-truck w-100" %>
   </div>
