@@ -5,6 +5,58 @@ class TruckPolicy < ApplicationPolicy
     end
   end
 
+  def chinese?
+    true
+  end
+
+  def indian?
+    true
+  end
+
+  def thai?
+    true
+  end
+
+  def mexican?
+    true
+  end
+
+  def lebanese?
+    true
+  end
+
+  def italian?
+    true
+  end
+
+  def kebabs?
+    true
+  end
+
+  def hot_dogs?
+    true
+  end
+
+  def ice_cream?
+    true
+  end
+
+  def donuts?
+    true
+  end
+
+  def pancakes?
+    true
+  end
+
+  def brazilian?
+    true
+  end
+
+  def tapas?
+    true
+  end
+
   def new?
     return true
   end
