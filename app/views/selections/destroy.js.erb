@@ -4,7 +4,11 @@ link = document.getElementById('s_<%= @dish.id %>');
 <% if @dish.selections.where(order: current_user.orders).any? %>
   link.id = 's_<%= @dish.id %>';
   // link.href = '/selections/<%= @dish.selections.last.id %>';
-  link.href = '/selections/<%= @dish.selections.where(order: current_user.orders.last).last.id %>';
+  <% if @dish.selections.where(order: current_user.orders.last).any? %>
+    link.href = '/selections/<%= @dish.selections.where(order: current_user.orders.last).last.id %>';
+  <% else %>
+    link.outerHTML = '<span id="disabled_link_<%= @dish.id %>">-</span>'
+  <% end %>
 <% else %>
   link.href = '';
   link.disabled = true;
