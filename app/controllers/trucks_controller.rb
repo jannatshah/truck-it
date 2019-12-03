@@ -83,6 +83,20 @@ class TrucksController < ApplicationController
     redirect_to root_path
   end
 
+  def truck_orders
+    @truck = Truck.find(params[:truck_id])
+    authorize @truck
+    all_truck_orders = []
+    @dishes = @truck.dishes
+    @dishes.each do |dish|
+      @orders = dish.orders
+      @orders.each do |order|
+        all_truck_orders << order
+      end
+    end
+    return all_truck_orders
+  end
+
   private
 
   def find_truck
