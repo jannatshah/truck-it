@@ -2,7 +2,7 @@
   <h2><%= s.truck.name %></h2>
   <p> <%= s.location %> </p>
   <p>Hours: <%= s.start_time.hour %> - <%= s.end_time.hour %>
-  <p>Put Description Here</p>
+  <p><%= s.truck.description  %></p>
   <p><%= link_to 'Go to Truck', truck_path(s.truck) %></p>
 
 </div>
