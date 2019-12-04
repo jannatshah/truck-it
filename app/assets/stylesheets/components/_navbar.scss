@@ -1,20 +1,10 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background-color: transparent !important;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
+.dropdown {
+  box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.2);
+  z-index: 99;
+  background: linear-gradient(135deg, #EEEEEE 0%, #dddddd 100%);
+}
 .truck-it, .truck-it:hover {
   color: #000;
-}
-.navbar {
-  height: 60px;
 }
 .dropdown-menu, .navbar-toggler {
   z-index: 99;
@@ -31,6 +21,13 @@
   margin: 0;
   padding: 0;
   border: 5px solid !important;
+  a {
+    color: rgba(0,0,0, .6) ;
+  }
+}
+.dropdown-menu.show{
+  top: 6px !important;
+  left: -20px !important;
 }
 .dropdown-item {
     display: block !important;
@@ -38,7 +35,6 @@
     padding: 0.25rem 1.5rem !important;
     clear: both !important;
     font-weight: 400 !important;
-    color: #111111 !important;
     text-align: inherit !important;
     white-space: nowrap !important;
     background-color: transparent !important;
