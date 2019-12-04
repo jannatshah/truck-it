@@ -1,4 +1,17 @@
   <div class="truck-info-box">
-    <h4><%= @truck.name %></h4>
-    <p><%= @truck.description %></p>
+    <h4 class='text-center font-weight-bold text-dark my-1'><%= @truck.name %></h4>
+    <p class='p-3'><%= @truck.description %></p>
+    <% today = Date.today.strftime("%A") %>
+    <% if @truck.schedules.where(day: today)[0].nil? == false %>
+      <% location = @truck.schedules.where(day: today).first.location %>
+      <% start = @truck.schedules.where(day: today).first.start_time.to_s[11..15] %>
+      <% close = @truck.schedules.where(day: today).first.end_time.to_s[11..15] %>
+      <p><i class="fas fa-search-location"></i> <%= location %></p>
+      <p>Open: <%= start %> - <%= close %></p>
+    <% else %>
+      <h3 class='text-dark text-center'>Ooops! Today we're closed :(</h3>
+      <p>Checkout our schedule below</p>
+    <% end %>
   </div>
+
+
