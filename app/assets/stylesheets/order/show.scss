@@ -1,3 +1,6 @@
+.confirmation-body {
+  // height: calc(100vh -60px - 230px);
+}
 .reciept-header {
   border-top: 2px solid rgba(0,0,0, .8);
   border-bottom: 2px solid rgba(0,0,0, .8);
@@ -14,4 +17,13 @@
 }
 .reciept-pay {
   width: 100%;
+}
+#foot {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.button-home {
+  margin: 0 auto;
+
 }
