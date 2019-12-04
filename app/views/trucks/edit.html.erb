@@ -58,12 +58,12 @@
   <div class = "row justify-content-center">
     <div class="col-12 col-sm-6 pt-5">
       <h3>Add another dish here</h3>
-      <%= render 'dishes/form', dish: @dish %>
+      <%= render 'dishes/form', truck: @truck, dish: Dish.new %>
     </div>
   </div>
 
   <div class="row m-3 justify-content-center">
-      <%= link_to 'Delete Truck', truck_path, method: :delete, class: 'button-home col-8' %>
+      <%= link_to 'Delete Truck', truck_path(@truck), method: :delete, class: 'button-home col-8' %>
     </div>
 
 </div>
