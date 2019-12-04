@@ -1,6 +1,6 @@
-  <div class="truck-info-box">
+  <div class="truck-info-box p-3">
     <h4 class='text-center font-weight-bold text-dark my-1'><%= @truck.name %></h4>
-    <p class='p-3'><%= @truck.description %></p>
+    <p class='pb-3'><%= @truck.description %></p>
     <% today = Date.today.strftime("%A") %>
     <% if @truck.schedules.where(day: today)[0].nil? == false %>
       <% location = @truck.schedules.where(day: today).first.location %>
@@ -10,7 +10,7 @@
       <p>Open: <%= start %> - <%= close %></p>
     <% else %>
       <h3 class='text-dark text-center'>Ooops! Today we're closed :(</h3>
-      <p>Checkout our schedule below</p>
+      <p>Check out our schedule below</p>
     <% end %>
   </div>
 
