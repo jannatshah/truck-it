@@ -1,8 +1,17 @@
 <div>
-  <h2><%= s.truck.name %></h2>
-  <p> <%= s.location %> </p>
-  <p>Hours: <%= s.start_time.hour %> - <%= s.end_time.hour %>
-  <p><%= s.truck.description  %></p>
-  <p><%= link_to 'Go to Truck', truck_path(s.truck) %></p>
+  <%= link_to truck_path(s.truck) do %>
+    <h2 class='bg-dark text-light text-center'><%= s.truck.name %></h2>
+  <% end %>
+    <h6 class='text-center text-dark'>&middot; <%= s.truck.category %> &middot;</h6>
+  <div class="popup-body mt-3">
+    <p><%= s.truck.description  %></p>
+    <div class="d-flex justify-content-between">
+      <p>Open: <%= s.start_time.to_s[11..15] %> - <%= s.end_time.to_s[11..15] %>
+      <% if s.truck.card %>
+        <p><span class="fab fa-cc-visa"></span></p>
+      <% end %>
+    </div>
+    <p> <%= s.location %> </p>
+  </div>
 
 </div>

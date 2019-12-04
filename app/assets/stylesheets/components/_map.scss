@@ -3,22 +3,24 @@
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
-  background-color: white;
-  padding: .5em;
-  border: 0;
-  border-bottom: 4px solid $secondary;
-  border-radius: 4px !important;
-  box-shadow: 1px 1px 8px 1px rgba(0,0,0,0.4);
-
+  position: relative;
+  bottom: 11px;
+  background: rgba(250,250,250, 0.8) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 15px;
+  // pointer-events: auto;
+  border: 2px solid black;
+  border-radius: 4px;
+  button {
+    display: none;
+  }
+  span {
+  }
 }
-
-.mapboxgl-popup-content h3 {
-  font-family: $headers-font;
-}
-
-.mapboxgl-popup-content p {
-  font-family: $body-font;
+.popup-body p {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
 }
 
 .map {
