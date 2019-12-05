@@ -1,10 +1,10 @@
 .dropdown {
   box-shadow: 0px 6px 8px 0px rgba(0,0,0,0.2);
   z-index: 99;
-  background: linear-gradient(135deg, #EEEEEE 0%, #dddddd 100%);
+  background: linear-gradient(135deg, #59CD90 0%, #59CD90 100%);
 }
 .truck-it, .truck-it:hover {
-  color: #000;
+  color: rgba(0,0,0, .4);
 }
 .dropdown-menu, .navbar-toggler {
   z-index: 99;
@@ -22,7 +22,7 @@
   padding: 0;
   border: 5px solid !important;
   a {
-    color: rgba(0,0,0, .6) ;
+    color: rgba(0,0,0, .4) ;
   }
 }
 .dropdown-menu.show{
