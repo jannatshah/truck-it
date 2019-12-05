@@ -50,6 +50,7 @@ class TrucksController < ApplicationController
   end
 
   def ice_cream
+    # raise
   end
 
   def donuts

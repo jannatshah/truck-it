@@ -12,15 +12,15 @@
 <!-- filter buttons -->
   <div class="filter-box">
 
-<% Truck::CATEGORIES.each do |category| %>
-  <%= link_to send("#{category.gsub(' ', '_')}_trucks_path") do %>
-    <div class="category-img" style="background-image: url('<%= cl_image_path("#{category.gsub(' ', '%20').capitalize}.jpg", :width => 100, :height => 100, :crop=>"fill") %>')">
-      <p class="text-center m-0"><%= category %></p>
-    </div>
+  <% Truck::CATEGORIES.sort.each do |category| %>
+    <%= link_to send("#{category.gsub(' ', '_')}_trucks_path") do %>
+      <div class="category-img" style="background-image: url('<%= cl_image_path("#{category.gsub(' ', '%20').capitalize}.jpg", :width => 100, :height => 100, :crop=>"fill") %>')">
+        <p class="text-center m-0"><%= category %></p>
+      </div>
       <!-- = cl_image_tag("burger.jpg", :width => 100, :height => 100, :crop=>"fill") %> -->
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
 <!--  -->
   <div class="open-now px-3 pb-3">
