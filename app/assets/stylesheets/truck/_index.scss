@@ -66,3 +66,7 @@ body::-webkit-scrollbar {
   }
   // background-image: url('<%= cl_image_path("burger.jpg", :width => 100, :height => 100, :crop=>"fill") %>')
 }
+
+.truck-img {
+  background-size: cover;
+}
