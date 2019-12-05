@@ -18,9 +18,20 @@
 
     <h4 class="col-12 my-3 text-right">To pay: <%= @total_price.sum %></h4>
 
-<div class="row">
+<div class="row d-flex justify-content-center">
     <% unless @order.selections.count == 0 %>
-    <%= link_to 'Confirm and pay', create_session_order_path(@order), class: 'col-10 offset-1 my-3 button-truck reciept-pay'  %>
+    <%= link_to 'Check-iT out', create_session_order_path(@order), class: 'col-10 my-3 button-truck reciept-pay'  %>
+<!--     <button id="pay" class="button-truck">Confirm and pay</button>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+      const paymentButton = document.getElementById('pay');
+      paymentButton.addEventListener('click', () => {
+        const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+        stripe.redirectToCheckout({
+          sessionId: '<%= @order.checkout_session_id %>'
+        });
+      });
+    </script> -->
     <% end %>
 </div>
 
