@@ -3,9 +3,15 @@
   <div class="row py-4 justify-content-center">
     <div class="col-md-3"><%#= image_tag @order.teddy.photo_url, width: '100%' %></div>
     <div class="col">
-      <h1 class="reciept-header">Checkout summary</h1>
-      <p>Your meal from <strong><%= @order.selections.last.dish.truck.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="button-truck">Confirm and pay</button>
+      <h1 class="reciept-header text-center">CHECKOUT</h1>
+      <br>
+      <h4>Your meal from <strong><%= @order.selections.last.dish.truck.name %></strong> for <strong><%= humanized_money_with_symbol @order.amount %></strong></h4>
+      <br>
+      <p>After confirmation <%= @order.selections.last.dish.truck.name %> will be notified of your order. Enjoy the walk to pick up your delicious food!</p>
+
+      <div class="d-flex justify-content-center">
+        <button id="pay" class="col-10 button-truck reciept-pay">Confirm-iT and pay</button>
+      </div>
 
       <script src="https://js.stripe.com/v3/"></script>
       <script>
