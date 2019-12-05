@@ -1,8 +1,8 @@
 # config/meta.yml
 
 meta_product_name: "Truck-iT"
-meta_title: "Truck-iT - Truck-it helps you discover food trucks that are mobile based on their schedule,
-    opening times, menu and your dietary preferences. You have more food options thank you think."
-meta_description: "Relevant description"
+meta_title: "Truck-iT - You have more food options than you think."
+meta_description: "Truck-it helps you discover food trucks that are mobile based on their schedule,
+    opening times, menu and your dietary preferences. You have more food options than you think."
 meta_image: "cover.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
