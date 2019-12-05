@@ -13,6 +13,10 @@ class TruckPolicy < ApplicationPolicy
     true
   end
 
+  def burgers?
+    true
+  end
+
   def thai?
     true
   end

@@ -13,8 +13,8 @@
     ], label: "What cuisine do you offer? Select below" %>
   <%= f.input :card, input_html: { class: "text-center" }, label: "Do you accept credit card?" %>
   <%= f.input :photo, as: :file, input_html: { class: "text-center" }, label: "We suggest you add at least one photo here, but it\'s not mandatory" %>
-  <div class="text-center">
-    <%= f.button :submit, :class => "btn-primary"  %>
+  <div class="text-center col-8 offset-2">
+    <%= f.button :submit,  :class => "button-truck text-center w-100"  %>
 
   </div>
 

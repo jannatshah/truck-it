@@ -1,8 +1,8 @@
 class TrucksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   before_action :find_truck, only: %i[show edit update destroy]
-  before_action :set_trucks, only: %i[chinese indian thai mexican lebanese italian kebabs hot_dogs ice_cream donuts pancakes brazilian tapas]
-  before_action :markers, only: %i[chinese indian thai mexican lebanese italian kebabs hot_dogs ice_cream donuts pancakes brazilian tapas]
+  before_action :set_trucks, only: %i[chinese burgers indian thai mexican lebanese italian kebabs hot_dogs ice_cream donuts pancakes brazilian tapas]
+  before_action :markers, only: %i[chinese burgers indian thai mexican lebanese italian kebabs hot_dogs ice_cream donuts pancakes brazilian tapas]
   def index
     @trucks = policy_scope(Truck)
     @schedules = @trucks.map { |truck| truck.schedules }.flatten
