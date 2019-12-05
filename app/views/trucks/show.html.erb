@@ -3,9 +3,9 @@
 
 <div class="wraper">
   <% if @truck.photo.attached? %>
-    <div class="truck-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @truck.photo.key, crop: :fill %>')"></div>
+    <div class="truck-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @truck.photo.key %>')"></div>
   <% else %>
-    <div class="truck-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path "truck_icon_gkzoru", crop: :fill %>')"></div>
+    <div class="truck-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path "truck_icon_gkzoru" %>')"></div>
     <% end %>
   <div class="container truck-content">
       <%= render 'shared/truck-info-box' %>
