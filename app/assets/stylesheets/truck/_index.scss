@@ -18,19 +18,20 @@ body::-webkit-scrollbar {
 }
 .open-now {
   background-color: #000;
-  & > h5 {
+  padding: 0 1em;
+  .list-title {
     color: #fff;
     text-align: center;
-    font-family: monospace;
+    padding: 16px 0;
   }
 }
 .closed-now {
   background-color: #fff;
+  padding: 0 1em;
   .list-title {
     color: #000;
     text-align: center;
-    font-family: monospace;
-  }
+    padding: 16px 0;  }
 }
 .filter-box {
   display: flex;
@@ -56,13 +57,11 @@ body::-webkit-scrollbar {
   align-items: center;
   p {
     color: white;
-    padding: 2px 4px;
+    padding: 2px 6px;
     background-color: black;
     font-weight: bold;
-    // -webkit-text-stroke: 1px black;
-    // text-shadow: 1px 2px 8px rgba(0,0,0, 1);
-    // font-size: 1.4em;
-    // line-height: 100px;
+    letter-spacing: 1px;
+    font-size: 1.1em;
 
   }
   // background-image: url('<%= cl_image_path("burger.jpg", :width => 100, :height => 100, :crop=>"fill") %>')

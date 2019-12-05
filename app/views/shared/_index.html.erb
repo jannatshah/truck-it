@@ -23,8 +23,8 @@
 </div>
 
 <!--  -->
-  <div class="open-now p-3">
-    <h5 class='list-title'>serving right now</h5>
+  <div class="open-now px-3 pb-3">
+    <h5 class='list-title m-0'>serving right now</h5>
     <% @trucks.sort_by {|t| -t.avg_reviews}.each do |truck| %>
       <% if truck.open? %>
         <%= link_to truck_path(truck) do %>
@@ -34,8 +34,8 @@
     <% end %>
   </div>
 
-  <div class="closed-now p-3">
-    <h5 class='list-title'>opening soon</h5>
+  <div class="closed-now px-3 pb-3">
+    <h5 class='list-title m-0'>opening soon</h5>
     <% @trucks.sort_by {|t| -t.avg_reviews}.each do |truck| %>
       <% if truck.open? != true %>
         <%= link_to truck_path(truck) do %>
@@ -45,5 +45,5 @@
     <% end %>
   </div>
 </div>
-<%= render 'shared/footer' %>
+<%= render 'shared/footer', footer_id: '' %>
 
