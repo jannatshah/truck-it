@@ -4,4 +4,16 @@
   padding: 12px;
   box-shadow: 1px 1px 8px rgba(0,0,0, .5);
   margin: 16px 0;
+  h5 {
+    font-size: 1.25rem;
+    color: rgba(0,0,0, .4);
+    text-align: center;
+    padding: 8px 0;
+  }
+  label {
+    padding: 0 16px;
+    font-size: 1.2em;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.5);
+  }
 }
