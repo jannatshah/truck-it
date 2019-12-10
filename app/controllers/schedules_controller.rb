@@ -37,7 +37,13 @@ class SchedulesController < ApplicationController
     else
       render :edit
     end
+  end
 
+  def destroy
+    @schedule = Schedule.find(params[:id])
+    @truck = @schedule.truck
+    @schedule.destroy
+    redirect_to edit_truck_path(@truck)
   end
 
   private
